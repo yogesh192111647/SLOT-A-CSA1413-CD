@@ -1,0 +1,28 @@
+%{
+#include<stdio.h>
+%}
+%%
+\<[^>]*\> fprintf(yyout,"%s\n",yytext);
+.|\n;
+%%
+int yywrap()
+{
+return 1;
+}
+
+int main()
+{
+yyin=fopen("ip.html","r");
+yyout=fopen("op.txt","w");
+yylex();
+return 0;
+}
+
+SAMPLE C PROGRAM
+
+<html>
+<body>
+<h1>My First Heading</h1>
+<p>My first paragraph.</p>
+</body>
+</html>

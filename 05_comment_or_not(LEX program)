@@ -1,0 +1,27 @@
+%{
+#include<stdio.h>
+%}
+%%
+[/]{2}[a-zA-Z0-9]+|[/][*][a-zA-Z0-9]+[*][/] {printf("\n%s is comment",yytext);}
+.+ {printf("\n%s is not comment",yytext);}
+%%
+
+int yywrap(){}
+int main()
+{
+while(yylex());
+} 
+
+
+SAMPLE C PROGRAM
+
+#include<stdio.h> 
+int main()
+{
+int a,b,c; /*varible declaration*/
+printf(“enter two numbers”);
+scanf(“%d %d”,&a,&b);
+c=a+b;//adding two numbers
+printf(“sum is %d”,c);
+return 0;
+}

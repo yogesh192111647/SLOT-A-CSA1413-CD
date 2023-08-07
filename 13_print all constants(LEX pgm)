@@ -1,0 +1,30 @@
+%{
+#include<stdio.h>
+int cons=0;
+%}
+%%
+[0-9]+ { cons++; printf("%s is a constant\n", yytext);  }
+.|\n { }
+%%
+int yywrap() 
+{
+return 1; 
+}
+int main(int argc,char* argv[])
+{
+yyin=fopen(argv[1],"r");
+yyout=fopen("output.c","w");
+yylex();
+printf("Number of Constants : %d\n", cons);
+}
+
+SAMPLE C PROGRAM
+
+#define P 314
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+ int a,b,c = 30;
+printf("hello");
+}

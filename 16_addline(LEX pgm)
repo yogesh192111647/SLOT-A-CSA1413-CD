@@ -1,0 +1,27 @@
+%{
+#include<stdio.h>
+int ln=0;
+%}
+%%
+
+.* {ln++; fprintf(yyout,"\n%d:%s",ln,yytext);}
+%%
+int yywrap(){}
+
+int main()
+{
+yyin=fopen("sample.txt","r");
+yyout=fopen("out.txt","w");
+yylex();
+return 0;
+}
+
+SAMPLE C PROGRAM
+#define PI 3.14
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+int a,b,c = 30;
+printf("hello");
+}

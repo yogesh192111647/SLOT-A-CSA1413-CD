@@ -1,0 +1,13 @@
+%{
+#include<stdio.h>
+%}
+%%
+"http""://"[a-zA-Z]+".com"|".in" {printf("\n%s is comment",yytext);}
+.+ {printf("\n%s is not comment",yytext);}
+%%
+
+int yywrap(){}
+int main()
+{
+while(yylex());
+} 
